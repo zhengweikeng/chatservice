@@ -1,17 +1,9 @@
 const express = require('express')
 const app = express()
-
 const server = require('http').Server(app)
-const io = require('socket.io')(server)
+const websocket = require('./lib/websocket/server')
 
-io.on('connection', (socket) => {
-  console.log('socket connected')
-  socket.on('disconnect', () => {
-    console.log('socket disconnect')
-  })
-})
-
-
+websocket(server)
 
 app.get('/', (req, res) => {
   res.send('hello world')
