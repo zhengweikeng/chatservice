@@ -5,9 +5,10 @@ const socket = io(`http://${url}:${port}`)
 
 socket.on('connection', (datas) => {
   const userId = datas.userId
-  console.log(`userId: ${userId}`)
+  console.log(userId)
   socket.emit('joinRoom', {
-    userId: userId
+    userId: userId,
+    roomId: 'd88a6b54-ab00-4575-ab0e-55003436370f'
   })
 })
 
